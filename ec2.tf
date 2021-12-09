@@ -20,6 +20,14 @@ resource "aws_security_group" "my_app_sg" {
     cidr_blocks = ["192.168.0.0/16"]
   }
 
+  ingress {
+    description = "access to port 80 for ansible"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["31.48.104.201/32"]
+  }
+
   egress {
     description = "Allow access to the world"
     from_port   = 0
@@ -50,3 +58,4 @@ resource "aws_instance" "my_public_server" {
     subnet_id = module.network.public_subnet_a_id
     vpc_security_group_ids = [ aws_security_group.my_app_sg.id ]
 }
+
