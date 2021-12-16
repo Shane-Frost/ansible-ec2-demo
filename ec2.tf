@@ -19,7 +19,8 @@ resource "aws_security_group" "my_app_sg" {
     protocol    = "tcp"
     cidr_blocks = ["192.168.0.0/16"]
   }
-
+#ACCESS for ansible
+#####ADD THIS HIMAT :D 
   ingress {
     description = "access to port 80 for ansible"
     from_port   = 80

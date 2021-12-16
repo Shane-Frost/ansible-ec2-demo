@@ -1,7 +1,7 @@
 #Group name for my web server
 
 [webserver]
-3.249.212.1 #IP Address of my EC2 server THIS IS MINE DONT USE IT MIA. 
+34.245.96.221 #IP Address of my EC2 server THIS IS MINE DONT USE IT MIA. 
 
 [webserver:vars]
 ansible_user = "ec2-user"

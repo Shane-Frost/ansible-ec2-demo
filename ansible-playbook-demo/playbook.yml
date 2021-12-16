@@ -17,7 +17,7 @@
 - hosts: all
   become: yes
   vars:
-    server_name: "{{ ansible_default_ipv4.address }}"
+    server_name: "34.245.96.221"
     document_root: /var/www/html
     app_root: html_demo_site-main
   tasks:
@@ -43,9 +43,14 @@
 
     - name: Apply Nginx template
       template:
-        src: files/nginx.conf.j2
+        src: templates/default.j2
         dest: /etc/nginx/sites-available/default
       notify: Restart Nginx
+
+    - name: Copy config files to the nginx default folder
+      copy:
+        src: files/nginx.conf
+        dest: /etc/nginx/
 
     - name: Enable new site
       file:
